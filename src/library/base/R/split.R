@@ -107,7 +107,7 @@ unsplit <- function (value, f, drop = FALSE)
         ans <- eval(formula[[2]], data, environment(formula))
     }
     else {
-        fterms <- stats::terms(formula)
+        fterms <- stats::terms(formula, data = data)
         ans <- eval(attr(fterms, "variables"), data, environment(formula))
         names(ans) <- attr(fterms, "term.labels")
     }
